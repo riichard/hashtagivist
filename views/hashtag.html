@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>#{{ hashtag.hashtag }}</h1>
+    <div class="col-lg-6">
+        <a class="twitter-timeline" href="https://twitter.com/search?q=%23thenextweb" data-widget-id="459084721784233984">Tweets about "#thenextweb"</a>
+        <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+
+        <!--<a class="twitter-timeline" href="https://twitter.com/search?q=%23k{{ hashtag.hashtag|url_encode }}" data-widget-id="459084721784233984">Tweets about "#{{ hashtag.hashtag }}"</a>-->
+        <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+    </div>
+</div>
+{% endblock %}

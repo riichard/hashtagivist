@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-      Home - Hashtagivist
+        Home - {{settings.name}} 
     </title>
     <script type="text/javascript" src="/js/underscore.js">
     </script>
@@ -28,80 +27,20 @@
             <span class="icon-bar">
             </span>
           </button>
-          <a href="/" class="navbar-brand">
-          </a>
+          <a href="/" class="navbar-brand">Hashtagivist</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="alternative">
-              <a href="/" class="btn btn-lg">
-                Submit # campaign
-              </a>
+              <a href="/submit" class="btn btn-lg btn-primary">Submit # campaign</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div class="logo">
-      <img src="hashtagivist2.png"/>
-    </div>
-    <div class="masthead">
-      <div class="container">
-        <div class="lead categories">
-        </div>
-      </div>
-    </div>
-    <script type="text/javascript">
-      var colors = [
-        "FF6699","00CC99","6666FF","00CC66","FF3333","FF6600","3366FF","3399FF","FFCC00"
-      ];
-      
-      var categories = [
-        'Diversity','LGBT','Gender','Eco','Health','War','Economy','Poverty','Education'
-      ];
-      
-      var row;
-      _.each(categories, function(category, i){
-        if(i==0){
-          //if(i % 3 == 0){
-          row = $("<div>").addClass("row");
-          $(".categories").append(row);
-        }
-        
-        row.append($("<div>").addClass("col-lg-4").append(
-          $("<button>").addClass("hashtag").text(category).addClass("btn").addClass("btn-block").addClass("btn-lg")
-          .addClass("btn-outline-inverse")
-        ));
-      }
-            );
-    </script>
-    <div class="container">
-      {% block content %}
-      <div class="main-content">
-        <h1>
-          Richard was here
-        </h1>
-      </div>
-      <div class="sidebar">
-        <div class="widget">
-          <h1>
-            Widget
-          </h1>
-          <p>
-            Sed auctor neque eu tellus rhoncus ut
-            eleifend nibh porttitor. Ut in nulla enim.
-          </p>
-          <p>
-            Vivamus hendrerit arcu sed erat molestie
-            vehicula.
-          </p>
-        </div>
-      </div>
-      <footer>
-        <p>
-          Running on node with Express, Jade and Stylus
-        </p>
-      </footer>
-    </div>
+    <!--<div class="logo">-->
+      <!--<img src="hashtagivist2.png"/>-->
+    <!--</div>-->
+    {% block content %}
   </body>
 </html>

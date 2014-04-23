@@ -9,12 +9,11 @@
 }
 
 .navbar .btn { 
-	padding:5px;
+	/*padding:5px;*/
 }
 
 .navbar .btn-primary { 
 	color: white !important; 
-	background-color:#00CC99;
 }
 
 .navbar .btn-primary:hover { 
