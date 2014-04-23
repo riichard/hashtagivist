@@ -1,11 +1,60 @@
-.navbar-header .navbar-brand { font-size:30px;margin:7px;}
-.navbar li.alternative { margin:7px; }
-.navbar .btn { padding:10px;}
-.navbar .btn-primary { color:#fff !important; }
-.navbar .btn-primary:hover { background:#3276b1 !important; }
+.navbar-header .navbar-brand { 
+	font-size:30px;
+	color: black;
+	margin:5px;
+}
 
-.navbar { margin-bottom:0; }
+.navbar li.alternative { 
+	margin:5px; 
+}
 
-.masthead { background:#00CC99;}
-.masthead .hashtag { margin-top:30px;font-size:40px;background:transparent;border-color:white;color:white;}
-.masthead .hashtag:hover { color:green;background:white;}
+.navbar .btn { 
+	padding:5px;
+}
+
+.navbar .btn-primary { 
+	color: white !important; 
+	background-color:#00CC99;
+}
+
+.navbar .btn-primary:hover { 
+	background:transparent !important;
+}
+
+.navbar { 
+	margin-bottom:0; 
+}
+
+.masthead { 
+	background:#00CC99;
+}
+
+.masthead .hashtag { 
+	margin-top:30px;
+	font-size:40px;
+	background:transparent;
+	border-color:white;
+	color:white;
+}
+
+.masthead .hashtag:hover { 
+	color:green;
+	background:white;
+}
+
+.header {
+	background: white;
+	padding:30px;
+}
+
+.container2 {
+	margin-top: 30px;
+	font-size:40px;
+	color:black;
+	background:white;
+	height:300px
+}
+
+.logo {
+	padding-left: 20px;
+}
