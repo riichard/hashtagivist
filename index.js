@@ -2,8 +2,11 @@ var express = require('express'),
   app = express(),
   swig = require('swig'),
   nib = require('nib'),
+  mongojs = require('mongojs'),
   stylus = require('stylus'),
   people;
+
+const db = mongojs("127.0.0.1/hashtagivist", ['hashtags'])
 
 function compile(str, path){
     return stylus(str).set('filename',path).use(nib())
@@ -30,8 +33,28 @@ swig.setDefaults({ cache: false });
 // NOTE: You should always cache templates in a production environment.
 // Don't leave both of these to `false` in production!
 
+var layouts = {};
+
 app.get('/', function (req, res) {
-  res.render('index', { /* template locals context */ });
+    var lists =[];
+
+    db.hashtags
+    .find({ stage : "trending", category : 0 })
+    .sort({ epoch : -1 }, function(err, data){
+        console.log(data);
+
+        lists.push({
+            title : "New hashtags",
+            hashtags : data
+        });
+        console.log("res responding");
+
+        res.render('index', { 
+            hi : "richard",
+            lists : lists
+        });
+
+    });
 });
 
 app.listen(1337);
