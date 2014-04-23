@@ -9,7 +9,9 @@ var express = require('express'),
   yaml = require('yamljs'),
   people;
 
-const db = mongojs("127.0.0.1/hashtagivist", ['hashtags'])
+console.log(process.env);
+
+const db = mongojs(process.env.MONGO_ADDRESS, ['hashtags'])
 
 function compile(str, path){
     return stylus(str).set('filename',path).use(nib())
@@ -38,7 +40,6 @@ app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded()); // to support URL-encoded bodies
 app.use(express.multipart());
 
-
 console.log(settings);
 
 // To disable Swig's cache, do the following:
@@ -49,8 +50,6 @@ swig.setDefaults({
 
 // NOTE: You should always cache templates in a production environment.
 // Don't leave both of these to `false` in production!
-
-
 
 var layouts = {};
 
