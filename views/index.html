@@ -8,5 +8,15 @@
 {% endblock %}
 
 {% block content %}
-<p>This is just an awesome page.</p>
+<p>This HEALAKLAJLA is just an awesome page.</p>
+{% for list in lists %}
+    <h1>{{list.title}}</h1>
+    <ul>
+        {% for hashtag in list.hashtags %}
+        <li>{{hashtag.hashtag}}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
 {% endblock %}
+
