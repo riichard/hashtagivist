@@ -1,0 +1,11 @@
+.navbar-header .navbar-brand { font-size:30px;margin:7px;}
+.navbar li.alternative { margin:7px; }
+.navbar .btn { padding:10px;}
+.navbar .btn-primary { color:#fff !important; }
+.navbar .btn-primary:hover { background:#3276b1 !important; }
+
+.navbar { margin-bottom:0; }
+
+.masthead { background:#00CC99;}
+.masthead .hashtag { margin-top:30px;font-size:40px;background:transparent;border-color:white;color:white;}
+.masthead .hashtag:hover { color:green;background:white;}

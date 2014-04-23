@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <title>Hashtagivist</title>
+    <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+</head>
+<body>
+<script type="text/javascript">
+    console.log("starting");
+    var db = new Firebase('https://hashtagivist.firebaseio.com/');
+    var hashtags = db.child('hashtags');
+    hashtags.once('value', function(hashtags){
+        hashtags.forEach(function(childSnapshot){
+            var name = childSnapshot.name();
+            var childData = childSnapshot.val();
+            console.log(name);
+            console.log(childData);
+        });
+    });
+</script>
+</body>
