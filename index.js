@@ -9,7 +9,7 @@ var express = require('express'),
   yaml = require('yamljs'),
   people;
 
-console.log(process.env);
+console.log(process.env.MONGO_ADDRESS);
 
 const db = mongojs(process.env.MONGO_ADDRESS, ['hashtags'])
 

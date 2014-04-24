@@ -40,9 +40,9 @@
     {% for list in lists %}
         <div class="col-lg-4">
             <h1>{{list.title}}</h1>
-            <ul>
+            <ul class="list-group">
                 {% for hashtag in list.hashtags %}
-                <li><a href="/hashtag/{{hashtag.hashtag}}">{{hashtag.hashtag}}</a></li>
+                <li class="list-group-item"><a href="/hashtag/{{hashtag.hashtag}}">#{{hashtag.hashtag}}</a></li>
                 {% endfor %}
             </ul>
         </div>
