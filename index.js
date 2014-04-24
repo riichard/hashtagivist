@@ -105,6 +105,6 @@ app.get('/hashtag/*', function(req, res){
 
 });
 
-app.listen(1337);
+app.listen(80);
 console.log('Application Started on http://localhost:1337/')
 
