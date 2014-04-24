@@ -11,7 +11,7 @@ var express = require('express'),
 
 console.log(process.env.MONGO_ADDRESS);
 
-const db = mongojs("127.0.0.1/hashtagivist", ['hashtags'])
+const db = mongojs("mongodb://rieps:11325@127.0.0.1/hashtagivist", ['hashtags'])
 
 function compile(str, path){
     return stylus(str).set('filename',path).use(nib())
@@ -55,9 +55,9 @@ var layouts = {};
 app.get('/', function (req, res) {
     var lists =[];
     var columns = [
-        { title : "New hashtags", icon : "time" },
-        { title : "Trending hashtags", icon : "bullhorn", query : { state : "trending" }},
-        { title : "Successful", icon : "ok", query : { state : "success" }}
+        { title : "New hashtags", icon : "time", query : { status:"New" } },
+        { title : "Trending hashtags", icon : "bullhorn", query : { status: "Trending" }},
+        { title : "Successful", icon : "ok", query : { status: "Successful" }}
     ];
 
     var category = req.query.category || false;
@@ -99,9 +99,10 @@ app.post('/submit', function(req, res){
 
 app.get('/hashtag/*', function(req, res){
     db.hashtags.findOne({ 
-        hashtag : req.params[0]
-    }, function(err, hashtag){
-        console.log(hashtag);
+        hashtag : new RegExp(req.params[0], "i")
+    }, function(err, hashtag){	
+	console.log(req.params[0]);
+	console.log(hashtag);
         res.render('hashtag', {
             hashtag : hashtag 
         }); 

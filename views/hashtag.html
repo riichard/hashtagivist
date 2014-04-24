@@ -1,14 +1,30 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="container">
-    <h1>#{{ hashtag.hashtag }}</h1>
-    <div class="col-lg-6">
-        <a class="twitter-timeline" href="https://twitter.com/search?q=%23thenextweb" data-widget-id="459084721784233984">Tweets about "#thenextweb"</a>
-        <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+<div class="masthead">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4"><h1>#{{ hashtag.hashtag | replace('#', '') }}</h1></div>
+			<div class="col-lg-4"><h1>by @{{ hashtag.creator | replace('@','') }}</div>
+			<div class="col-lg-4">
+				<br>
+				<a href="https://twitter.com/intent/tweet?button_hashtag={{ hashtag.hashtag | replace('#', '') | url_encode }}" class="twitter-hashtag-button" data-size="large" data-related="hashtagivist">Tweet #{{ hashtag.hashtag | replace('#','') || url_encode }} now</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			 </div>
+		</div>
+	</div>
+</div>
 
-        <!--<a class="twitter-timeline" href="https://twitter.com/search?q=%23k{{ hashtag.hashtag|url_encode }}" data-widget-id="459084721784233984">Tweets about "#{{ hashtag.hashtag }}"</a>-->
-        <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+<div class="container">
+    <div class="col-lg-6">
+        <!--<a class="twitter-timeline" href="https://twitter.com/search?q=%23thenextweb" data-widget-id="459084721784233984">Tweets about "#thenextweb"</a>
+        <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>-->
+	<br>
+
+        <a class="twitter-timeline" href="https://twitter.com/search?q=%23k{{ hashtag.hashtag|url_encode }}" data-widget-id="459084721784233984">Tweets about "#{{ hashtag.hashtag }}"</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+    <div class="col-lg-6">
     </div>
 </div>
 {% endblock %}

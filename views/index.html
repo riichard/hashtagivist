@@ -24,7 +24,7 @@
             <h1><span class="glyphicon glyphicon-{{list.icon}}"></span> {{list.title}}</h1>
             <ul class="list-group">
                 {% for hashtag in list.hashtags %}
-                <li class="list-group-item"><a href="/hashtag/{{hashtag.hashtag}}">#{{hashtag.hashtag}}</a></li>
+                <li class="list-group-item"><a href="/hashtag/{{hashtag.hashtag | replace('#','')}}">#{{hashtag.hashtag | replace('#','') }}</a></li>
                 {% endfor %}
             </ul>
         </div>
