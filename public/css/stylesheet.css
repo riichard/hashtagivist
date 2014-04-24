@@ -42,7 +42,7 @@
 	background:white;
 }
 
-.masthead h1 { color:#fff; }
+.masthead h1 { color:#fff;font-size:30px; }
 
 .header {
 	background: white;
