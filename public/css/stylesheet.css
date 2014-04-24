@@ -36,7 +36,8 @@
 	color:white;
 }
 
-.masthead .hashtag:hover { 
+.masthead .hashtag:hover,
+.masthead .hashtag.active { 
 	color:#00CC99;
 	background:white;
 }

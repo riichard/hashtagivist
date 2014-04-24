@@ -60,8 +60,11 @@ app.get('/', function (req, res) {
         { title : "Successful", icon : "ok", query : { state : "success" }}
     ];
 
+    var category = req.query.category || false;
+
     async.map(columns, function(column, done){
         var query = extend({}, column.query || {});
+        if(category) query.category = category;
         db.hashtags.find(query).sort(column.sort || { epoch : -1 }).limit(10, function(err, hashtags){
             column.hashtags = hashtags;
             done(null, column);
@@ -70,12 +73,14 @@ app.get('/', function (req, res) {
         console.log(JSON.stringify(columns, 0, '   '));
 
         res.render('index', { 
-            lists : columns 
+            active : category,
+            lists : columns,
+            categories : settings.categories
         });
     });
 });
 app.get('/submit', function(req, res){
-    res.render("submit");
+    res.render("submit", { categories : settings.categories });
 });
 
 app.post('/submit', function(req, res){

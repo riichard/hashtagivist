@@ -33,8 +33,10 @@
                 <label>Category</label>
                 <div class="controls">
                     <select name="category" class="btn btn-block btn-large">
-                        <option>Make a selection</option>
-                        <option>LGBT</option>
+                        <option selected disabled>Make a selection</option>
+                        {% for id, category in categories %}
+                            <option value="{{ id }}">{{ category.title }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>

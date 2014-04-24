@@ -1,7 +1,21 @@
 name: Hashtagivista
 categories:
+    diversity:
+        title: Diversity
+    lgbt:
+        title: LGBT
     gender:
-        title   : gender
-    race:
-        title   : race 
+        title: Gender
+    environmental:
+        title: Environmental
+    health:
+        title: Health
+    war:
+        title: War
+    economy:
+        title: Economy
+    poverty:
+        title: Poverty
+    education:
+        title: Education
       
