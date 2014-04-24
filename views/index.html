@@ -7,39 +7,21 @@
 <div class="masthead">
   <div class="container">
     <div class="lead categories">
+        <div class="row">
+            {% for id, category in categories %}
+            <div class="col-lg-4 col-md-6">
+                <a class="btn btn-block btn-lg btn-outline-inverse hashtag {% if id == active %} active{% endif %}" href="/?category={{ id }}">{{ category.title }}</a>
+            </div>
+            {% endfor %}
+        </div>
     </div>
   </div>
 </div>
-<script type="text/javascript">
-  var colors = [
-    "FF6699","00CC99","6666FF","00CC66","FF3333","FF6600","3366FF","3399FF","FFCC00"
-  ];
-  
-  var categories = [
-    'Diversity','LGBT','Gender','Eco','Health','War','Economy','Poverty','Education'
-  ];
-  
-  var row;
-  _.each(categories, function(category, i){
-    if(i==0){
-      //if(i % 3 == 0){
-      row = $("<div>").addClass("row");
-      $(".categories").append(row);
-    }
-    
-    row.append($("<div>").addClass("col-lg-4").append(
-      $("<button>").addClass("hashtag").text(category).addClass("btn").addClass("btn-block").addClass("btn-lg")
-      .addClass("btn-outline-inverse")
-    ));
-  }
-        );
-</script>
-
 <div class="container">
     <div class="row">
     {% for list in lists %}
         <div class="col-lg-4">
-            <h1>{{list.title}}</h1>
+            <h1><span class="glyphicon glyphicon-{{list.icon}}"></span> {{list.title}}</h1>
             <ul class="list-group">
                 {% for hashtag in list.hashtags %}
                 <li class="list-group-item"><a href="/hashtag/{{hashtag.hashtag}}">#{{hashtag.hashtag}}</a></li>
@@ -49,6 +31,5 @@
     {% endfor %}
     </div>
 </div>
-
 {% endblock %}
 

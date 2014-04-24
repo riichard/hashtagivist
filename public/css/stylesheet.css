@@ -36,8 +36,9 @@
 	color:white;
 }
 
-.masthead .hashtag:hover { 
-	color:green;
+.masthead .hashtag:hover,
+.masthead .hashtag.active { 
+	color:#00CC99;
 	background:white;
 }
 

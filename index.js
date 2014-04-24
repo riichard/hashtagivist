@@ -11,7 +11,7 @@ var express = require('express'),
 
 console.log(process.env.MONGO_ADDRESS);
 
-const db = mongojs(process.env.MONGO_ADDRESS, ['hashtags'])
+const db = mongojs("127.0.0.1/hashtagivist", ['hashtags'])
 
 function compile(str, path){
     return stylus(str).set('filename',path).use(nib())
@@ -44,8 +44,7 @@ console.log(settings);
 
 // To disable Swig's cache, do the following:
 swig.setDefaults({ 
-    cache: false,
-    settings : settings
+    cache: false
 });
 
 // NOTE: You should always cache templates in a production environment.
@@ -56,13 +55,16 @@ var layouts = {};
 app.get('/', function (req, res) {
     var lists =[];
     var columns = [
-        { title : "New hashtags" },
-        { title : "Trending hashtags", query : { state : "trending" }},
-        { title : "Success hashtag campaigns", query : { state : "success" }}
+        { title : "New hashtags", icon : "time" },
+        { title : "Trending hashtags", icon : "bullhorn", query : { state : "trending" }},
+        { title : "Successful", icon : "ok", query : { state : "success" }}
     ];
+
+    var category = req.query.category || false;
 
     async.map(columns, function(column, done){
         var query = extend({}, column.query || {});
+        if(category) query.category = category;
         db.hashtags.find(query).sort(column.sort || { epoch : -1 }).limit(10, function(err, hashtags){
             column.hashtags = hashtags;
             done(null, column);
@@ -71,12 +73,14 @@ app.get('/', function (req, res) {
         console.log(JSON.stringify(columns, 0, '   '));
 
         res.render('index', { 
-            lists : columns 
+            active : category,
+            lists : columns,
+            categories : settings.categories
         });
     });
 });
 app.get('/submit', function(req, res){
-    res.render("submit");
+    res.render("submit", { categories : settings.categories });
 });
 
 app.post('/submit', function(req, res){
