@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<form action="/submit" method="post">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <h1>Submit a new hashtag</h1>
+            <div class="form-group">
+                <label>Hashtag</label>
+                <div class="controls">
+                    <input type="text" class="input-lg form-control" placeholder="Hashtag" name="hashtag"  />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Campaign Leader</label>
+                <div class="controls">
+                    <input type="text" class="input-lg form-control" placeholder="Campaign leader's @username" name="campaign_leader"  />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Your name</label>
+                <div class="controls">
+                    <input type="text" class="input-lg form-control" placeholder="Your @username" name="creator"  />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Suggested tweet</label>
+                <div class="controls">
+                    <textarea class="input-lg form-control" placeholder="I support #thishashtag!"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <div class="controls">
+                    <select name="category" class="btn btn-block btn-large">
+                        <option>Make a selection</option>
+                        <option>LGBT</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="controls">
+                    <input type="submit" class="input-lg btn btn-block btn-primary" value="Submit" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
