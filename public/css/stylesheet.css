@@ -42,6 +42,8 @@
 	background:white;
 }
 
+.masthead h1 { color:#fff; }
+
 .header {
 	background: white;
 	padding:30px;
@@ -58,3 +60,4 @@
 .logo {
 	padding-left: 20px;
 }
+
