@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        Home - {{settings.name}} 
+        Hashtagivist
     </title>
     <script type="text/javascript" src="/js/underscore.js">
     </script>
@@ -17,9 +17,7 @@
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle">
-            <span class="src-only">
-              Toggle navigation
-            </span>
+            <span class="src-only"> </span>
             <span class="icon-bar">
             </span>
             <span class="icon-bar">
@@ -38,9 +36,31 @@
         </div>
       </div>
     </nav>
+
     <!--<div class="logo">-->
       <!--<img src="hashtagivist2.png"/>-->
     <!--</div>-->
-    {% block content %}
+    {% block content %}{% endblock %}
+
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3">
+                <a class="btn btn-primary" href="http://eepurl.com/Tf1dr">Sign up</a> to stay posted about hashtag campaigns</a>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-33288751-6', 'hashtagivist.com');
+        ga('send', 'pageview');
+    </script>
   </body>
 </html>

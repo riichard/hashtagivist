@@ -27,9 +27,10 @@
       $(".categories").append(row);
     }
     
-    row.append($("<div>").addClass("col-lg-4").append(
-      $("<button>").addClass("hashtag").text(category).addClass("btn").addClass("btn-block").addClass("btn-lg")
-      .addClass("btn-outline-inverse")
+    row.append($("<div>").addClass("col-lg-4 col-md-6").append(
+            $("<a>").addClass("hashtag").text(category).addClass("btn").addClass("btn-block").addClass("btn-lg")
+              .addClass("btn-outline-inverse")
+              .attr("href", "/?category="+category)
     ));
   }
         );
@@ -39,7 +40,7 @@
     <div class="row">
     {% for list in lists %}
         <div class="col-lg-4">
-            <h1>{{list.title}}</h1>
+            <h1><span class="glyphicon glyphicon-{{list.icon}}"></span> {{list.title}}</h1>
             <ul class="list-group">
                 {% for hashtag in list.hashtags %}
                 <li class="list-group-item"><a href="/hashtag/{{hashtag.hashtag}}">#{{hashtag.hashtag}}</a></li>
@@ -49,6 +50,5 @@
     {% endfor %}
     </div>
 </div>
-
 {% endblock %}
 

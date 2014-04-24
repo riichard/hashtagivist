@@ -11,7 +11,7 @@ var express = require('express'),
 
 console.log(process.env.MONGO_ADDRESS);
 
-const db = mongojs(process.env.MONGO_ADDRESS, ['hashtags'])
+const db = mongojs("127.0.0.1/hashtagivist", ['hashtags'])
 
 function compile(str, path){
     return stylus(str).set('filename',path).use(nib())
@@ -44,8 +44,7 @@ console.log(settings);
 
 // To disable Swig's cache, do the following:
 swig.setDefaults({ 
-    cache: false,
-    settings : settings
+    cache: false
 });
 
 // NOTE: You should always cache templates in a production environment.
@@ -56,9 +55,9 @@ var layouts = {};
 app.get('/', function (req, res) {
     var lists =[];
     var columns = [
-        { title : "New hashtags" },
-        { title : "Trending hashtags", query : { state : "trending" }},
-        { title : "Success hashtag campaigns", query : { state : "success" }}
+        { title : "New hashtags", icon : "time" },
+        { title : "Trending hashtags", icon : "bullhorn", query : { state : "trending" }},
+        { title : "Successful", icon : "ok", query : { state : "success" }}
     ];
 
     async.map(columns, function(column, done){
@@ -105,6 +104,6 @@ app.get('/hashtag/*', function(req, res){
 
 });
 
-app.listen(1337);
+app.listen(1338);
 console.log('Application Started on http://localhost:1337/')
 
