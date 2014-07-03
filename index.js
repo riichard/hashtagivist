@@ -64,7 +64,7 @@ app.get('/', function (req, res) {
 
     async.map(columns, function(column, done){
         var query = extend({}, column.query || {});
-        if(category) query.category = category;
+        if(category) query.category = RegExp(category, 'i');
         db.hashtags.find(query).sort(column.sort || { epoch : -1 }).limit(10, function(err, hashtags){
             column.hashtags = hashtags;
             done(null, column);
@@ -102,7 +102,6 @@ app.get('/hashtag/*', function(req, res){
         hashtag : new RegExp(req.params[0], "i")
     }, function(err, hashtag){	
 	console.log(req.params[0]);
-	console.log(hashtag);
         res.render('hashtag', {
             hashtag : hashtag 
         }); 

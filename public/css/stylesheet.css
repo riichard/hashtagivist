@@ -15,9 +15,8 @@
 .navbar .btn-primary { 
 	color: white !important; 
 }
-
-.navbar .btn-primary:hover { 
-	background:transparent !important;
+.navbar .btn.signup {
+	background:#FE927E;
 }
 
 .navbar { 
